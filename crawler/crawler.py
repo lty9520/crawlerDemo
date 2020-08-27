@@ -10,5 +10,5 @@ headers  = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKi
 
 if __name__ == '__main__':
     #mainUtil.main(headers, aim_url)
-    #getFile.downFile()
-    changeIP.changeIP()
+    getFile.downFile()
+    #changeIP.changeIP()
