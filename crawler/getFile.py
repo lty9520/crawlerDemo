@@ -23,7 +23,6 @@ def downFile():
     }
 
     # cookies KV style
-
     cookies = {
         "_ga": "GA1.2.674636311.1596542605",
         "cirgu": "_1_lQW3CauilVNWfPtDsrnQ542KhXCaSTVRqjirTFiMwrSIKx3U0HMoVeEVHNcJf1uohw%3D%3D",
