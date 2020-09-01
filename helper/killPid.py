@@ -5,9 +5,9 @@ def kill(pid):
     # kill 相应pid进程
     if os.name == 'nt':
         # windows
-        cmd = 'taskkill /pid ' + str(pid) + '/f'
+        cmd = 'taskkill /pid ' + str(pid) + ' /f'
         try:
-            os.system(cmd)
+            print (cmd)
         except Exception as e:
             print(e)
 

@@ -1,4 +1,4 @@
-from helper import killPid
+from helper.killPid import kill
 import os
 
 
@@ -12,7 +12,7 @@ def stopServer():
         pid = file.readlines()
 
     for str_pid in pid:
-        killPid(str(str_pid).strip("\n"))
+        kill(str(str_pid).strip("\n"))
 
 
 if __name__ == '__main__':
