@@ -2,6 +2,7 @@
 import inspect
 import os
 import servicemanager
+import subprocess
 import sys
 import win32event
 import win32service
@@ -10,6 +11,11 @@ import win32serviceutil
 import logging
 
 import winerror
+
+
+this_file = inspect.getfile(inspect.currentframe())
+cur_path = os.path.abspath(os.path.dirname(this_file))
+rot_path = os.path.abspath(os.path.join(cur_path, os.path.pardir))
 
 
 class pythonServiceDemo(win32serviceutil.ServiceFramework):
@@ -31,9 +37,8 @@ class pythonServiceDemo(win32serviceutil.ServiceFramework):
 
         logger = logging.getLogger('[PythonService]')
 
-        this_file = inspect.getfile(inspect.currentframe())
-        dirpath = os.path.abspath(os.path.dirname(this_file))
-        handler = logging.FileHandler(os.path.join(dirpath, "service.log"))
+
+        handler = logging.FileHandler(os.path.join(cur_path, "service.log"))
 
         formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
         handler.setFormatter(formatter)
@@ -44,18 +49,27 @@ class pythonServiceDemo(win32serviceutil.ServiceFramework):
         return logger
 
     def SvcDoRun(self):
-        import time
         self.logger.info("service is run ...")
-        while self.run:
-
-            self.logger.info("running ...")
-            time.sleep(2)
+        self.start()
+        win32event.WaitForSingleObject(self.hWaitStop, win32event.INFINITE)
 
     def SvcStop(self):
         self.logger.info("service is stop ...")
         self.ReportServiceStatus(win32service.SERVICE_STOP_PENDING)
         win32event.SetEvent(self.hWaitStop)
-        self.run = False
+        self.stop()
+
+
+class myService(pythonServiceDemo):
+    def start(self):
+        """ start service"""
+        self.child = subprocess.Popen("python proxyPool.py server", cwd=rot_path)
+        logging.warning('child pid is %s', self.child.pid)
+
+    def stop(self):
+        """ kill the service pid"""
+        os.system("taskkill /t /f /pid %s", self.child.pid)
+
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -68,4 +82,4 @@ if __name__ == '__main__':
             if details[0] == winerror.ERROR_FAILED_SERVICE_CONTROLLER_CONNECT:
                 win32serviceutil.usage()
     else:
-        win32serviceutil.HandleCommandLine(pythonServiceDemo)
+        win32serviceutil.HandleCommandLine(myService)
