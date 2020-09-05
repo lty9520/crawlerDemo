@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     testKill.py
+   Description :   testKill
+   Author :       LHY
+   date：          2020/08/27
+-------------------------------------------------
+   Change Activity:
+                   2020/08/27: testKill
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 from helper import killPid
 import os
 

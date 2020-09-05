@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     mainUtil.py
+   Description :
+   Author :       LHY
+   date：          2020/08/17
+-------------------------------------------------
+   Change Activity:
+                   2020/08/17: mainUtil
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import requests
 from lxml import etree
 

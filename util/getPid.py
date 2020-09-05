@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     getPid.py
+   Description :   get pid of process
+   Author :       LHY
+   date：          2020/08/27
+-------------------------------------------------
+   Change Activity:
+                   2020/08/27:
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import os
 
 

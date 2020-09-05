@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     getFile.py
+   Description :   down file from url
+   Author :       LHY
+   date：          2020/08/19
+-------------------------------------------------
+   Change Activity:
+                   2020/08/19: getFile
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import requests
 
 

@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     urlDown.py
+   Description :   down url file
+   Author :       LHY
+   date：          2020/08/17
+-------------------------------------------------
+   Change Activity:
+                   2020/08/17:
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import os
 import random
 

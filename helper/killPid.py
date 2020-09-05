@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     killPid.py
+   Description :   kill pid
+   Author :       LHY
+   date：          2020/08/27
+-------------------------------------------------
+   Change Activity:
+                   2020/08/27: killpid
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import os
 
 

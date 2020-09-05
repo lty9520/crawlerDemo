@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     pidHandler.py
+   Description :   handle the pid of process
+   Author :       LHY
+   date：          2020/08/27
+-------------------------------------------------
+   Change Activity:
+                   2020/08/27: pidHandler
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 from helper.killPid import kill
 import os
 

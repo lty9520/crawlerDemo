@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     crawler.py
+   Description :   WebApi
+   Author :       LHY
+   date：          2020/08/17
+-------------------------------------------------
+   Change Activity:
+                   2020/08/17:
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import mainUtil
 import getFile
 import changeIP

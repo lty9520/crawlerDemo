@@ -1,4 +1,19 @@
-#encoding = utf-8
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     serviceDemo.py
+   Description :   demo of windows service
+   Author :       LHY
+   date：          2020/08/29
+-------------------------------------------------
+   Change Activity:
+                   2020/08/29:
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
+
 import inspect
 import os
 import servicemanager

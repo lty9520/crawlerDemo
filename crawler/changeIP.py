@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     changIP.py
+   Description :   WebApi
+   Author :       LHY
+   date：          2020/08/17
+-------------------------------------------------
+   Change Activity:
+                   2020/08/17: changeIP
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import requests
 import urllib.request
 

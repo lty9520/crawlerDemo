@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     testPath.py
+   Description :   test os.path
+   Author :       LHY
+   date：          2020/08/17
+-------------------------------------------------
+   Change Activity:
+                   2020/08/17:
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import os
 
 cur_path = os.path.dirname(os.path.abspath(__file__))

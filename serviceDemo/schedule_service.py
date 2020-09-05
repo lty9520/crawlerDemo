@@ -1,4 +1,18 @@
-# encoding = utf-8
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+"""
+-------------------------------------------------
+   File Name：     schedule_service.py
+   Description :   service of proxy schedule
+   Author :       LHY
+   date：          2020/09/03
+-------------------------------------------------
+   Change Activity:
+                   2020/09/03:
+-------------------------------------------------
+"""
+__author__ = 'LHY'
+
 import inspect
 import os
 import servicemanager
