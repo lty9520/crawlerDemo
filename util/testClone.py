@@ -10,6 +10,8 @@
     Change Activity:
                      2020/9/5 :
 """
+import time
+
 __author__ = 'LHY'
 
 from github import Github
@@ -18,29 +20,46 @@ import os
 
 cur_path = os.path.dirname(__file__)
 path = os.path.abspath(os.path.join(cur_path, os.path.pardir))
-g = Github("b077ee68a810d3a5b8eb0c9e86c0360c80f8aef2"
+g = Github("5c0a203a17caed7db36fb61d3d158984ad842dbd"
            , user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'
            )
 
 i = 0
 
 
+
 def getContents(i):
     print(i)
     i += 1
     try:
-        rate = g.get_rate_limit()
+        rate = g.rate_limiting_resettime
     except ConnectionResetError as e:
         getContents(i)
     print("rate_limit : " + str(rate))
     # g = Github("lty9520", "Liuhaoyu110")
     repo = g.get_repo("lty9520/XML2InfoGraph")
-    return repo.get_contents("")
+    # return repo.get_contents("")
+    return rate
 
 
-contents = getContents(i)
-for content_file in contents:
-    print(content_file)
+
+# contents = getContents(i)
+# for content_file in contents:
+#     print(content_file)
+
+#rate_reset = getContents(i)
+#print("ratetime-reset : " + str(rate_reset))
+print("time now : " + time.strftime('%Y-%m-%d', time.localtime(time.time())))
+# print("time now : " + '%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+#print("ratetime2time : " + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(rate_reset)))
+
+log_path = 'logs'
+cur_date = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+if os.path.isdir(os.path.abspath(os.path.join(log_path, cur_date))) is not True:
+    log_path = os.path.abspath(os.path.join(log_path, cur_date))
+    os.mkdir(log_path, 0o755)
+
+
 
 # print(repo.git_url)
 # print(repo.clone_url)
