@@ -20,7 +20,8 @@ from db.dbClient import DbClient
 pool = redis.ConnectionPool.from_url('redis://:12345@127.0.0.1:6379/1')
 r = redis.StrictRedis(connection_pool=pool)
 
-print(r.keys())
+print(r.hget('keyword', 'test'))
+
 
 
 

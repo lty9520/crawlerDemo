@@ -20,7 +20,7 @@ import os
 
 cur_path = os.path.dirname(__file__)
 path = os.path.abspath(os.path.join(cur_path, os.path.pardir))
-g = Github("5c0a203a17caed7db36fb61d3d158984ad842dbd"
+g = Github("8f414d261219a9bb2b4f1e06042dc28696610dde"
            , user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'
            )
 
@@ -39,11 +39,11 @@ def getContents(i):
     # g = Github("lty9520", "Liuhaoyu110")
     repo = g.get_repo("lty9520/XML2InfoGraph")
     # return repo.get_contents("")
-    return rate
+    # return rate
+    return repo
 
 
-
-# contents = getContents(i)
+contents = getContents(i)
 # for content_file in contents:
 #     print(content_file)
 
@@ -64,7 +64,8 @@ if os.path.isdir(os.path.abspath(os.path.join(log_path, cur_date))) is not True:
 # print(repo.git_url)
 # print(repo.clone_url)
 
-# clone_path = os.path.join(path, str(repo.id))
-# Repo.clone_from(repo.html_url, to_path=clone_path)
+repo = getContents(i)
+clone_path = os.path.join(path, str(repo.id))
+Repo.clone_from(repo.html_url, to_path=clone_path)
 
 

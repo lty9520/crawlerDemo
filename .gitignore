@@ -40,3 +40,5 @@ util/logs/*
 
 #File
 *.pdf
+*.gsil
+*.txt
