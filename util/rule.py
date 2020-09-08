@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 --------------------------------
-    @File Name:      keyword.py
+    @File Name:      rule.py
     @Description:    
     @Author:         
     @Date:           2020/9/7 9:14
@@ -17,8 +17,8 @@ import json
 
 class keyWord(object):
 
-    def __init__(self, type, corp, kw, mode, ext):
-        self._type = type
+    def __init__(self, types, corp, kw, mode, ext):
+        self._type = types
         self._corp = corp
         self._kw = kw
         self._mode = mode
@@ -27,7 +27,7 @@ class keyWord(object):
     @classmethod
     def createFromJson(cls, keyword_json):
         keyword_dict = json.loads(keyword_json)
-        return cls(type=keyword_dict.get("type", "")
+        return cls(types=keyword_dict.get("type", "")
                    , corp=keyword_dict.get("corp", "")
                    , kw=keyword_dict.get("kw", "")
                    , mode=keyword_dict.get("mode", "normal-match")
