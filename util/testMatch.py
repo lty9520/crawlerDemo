@@ -13,7 +13,7 @@
 __author__ = 'LHY'
 
 import os
-
+import redis
 """
 
     rule: 
@@ -73,6 +73,25 @@ rule_object = [
         "ext": "js,java,py"
     },
 ]
+
+# r = DbClient('redis://:12345@127.0.0.1:6379/0')
+pool = redis.ConnectionPool(host='127.0.0.1', port=6379, db=1, password='12345')
+# pool = redis.ConnectionPool.from_url('redis://:12345@127.0.0.1:6379/1')
+r = redis.StrictRedis(connection_pool=pool)
+# rule_rds = eval(str(r.hget("keywords_rule", "test"), 'utf-8'))
+rule_rds = {"types":"bankofbeijing","corp_name":"corp_bob","rule_keyword":"hello","mode":"normal-match","extension":"php,java,python,go,js,properties"}
+
+kws = rule_rds['rule_keyword']
+if ' ' in kws:
+    kw = kws.split(' ')
+else:
+    kw = [kws]
+
+# kw = kws.split(' ')
+print("kw:")
+print(kw)
+
+print('-'*40)
 
 count = 0
 # match_rst = {"test1": False, "OGLES2HelloTriangle_Windows": False, "hello": False, "cpp": False, "test": False}
