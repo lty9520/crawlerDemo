@@ -10,6 +10,8 @@
     Change Activity:
                      2020/9/10 :
 """
+import os
+
 __author__ = 'LHY'
 
 import filecmp
@@ -35,7 +37,14 @@ def createJson(file, jsonfile):
     with open(file, 'r', encoding='utf-8') as file:
         datas = file.readlines()
 
-    jsonfile_cnt = len(open(jsonfile, 'r', encoding='utf-8').readlines())
+    j_f = open(jsonfile, "a", encoding='UTF-8')
+
+    if os.path.getsize(jsonfile) is not True:
+        # print(os.path.getsize(jsonfile))
+        jsonfile_cnt = 0
+    else:
+        jsonfile_cnt = len(j_f.readlines())
+
     file_cnt = len(datas)
     if file_cnt == jsonfile_cnt:
         print("file may be not change.")
@@ -46,10 +55,13 @@ def createJson(file, jsonfile):
         if '\n' in data:
             data = data.replace('\n', '')
         if '"' in data:
-            data = data.replace('"', '\"')
+            data = data.replace('"', r'\"')
         if ';' in data:
             data = data.replace(';', '')
+        if r'\\"' in data:
+            data = data.replace(r'\\"', r'\"')
         data_refor.append(data)
+
     # ju_1 = '{"index":{"_index":"test","_id":'
     ju_2 = r'{"code":"'
 
@@ -65,11 +77,13 @@ def createJson(file, jsonfile):
 
         res_2 = ju_2 + data + '"}' + '\n'
         # print(res_2)
-        a = open(jsonfile, "a", encoding='UTF-8')
-        a.write(res_2)
 
-        a.close()
-        number += 1
+        j_f.write(res_2)
+
+
+        number +=1
+
+    j_f.close()
 
     if len(data_refor) == jsonfile_cnt:
         print("create success")
@@ -168,6 +182,8 @@ class ElasticObj:
 if __name__ == '__main__':
     # print("'asdasfasfa'fasfa'fasfasfa'")
     createJson("../test", "../out.json")
-    obj = ElasticObj("test_index_2", '127.0.0.1:9200')
-    obj.create_index()
-    obj.insert_data("../out.json")
+    #obj = ElasticObj("test_index_2", '127.0.0.1:9200')
+    #obj.create_index()
+    #obj.insert_data("../out.json")
+    test = "../test"
+    print(test + ".json")
