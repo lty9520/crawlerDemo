@@ -20,23 +20,27 @@ with open("../black", 'r') as f:
 
 g = Github(login_or_token='0ba53b7134382735e4f88efec196274f6c94e250', per_page=50)
 
+print(blacks.__len__())
 
-for black in blacks:
+test = [11,22]
+
+for idx, black, num in range(2), enumerate(blacks), enumerate(test):
+    print(num)
     repo_query = ''
     repo_kw = black.split(' ')
     repo_query += '{keyword} repo:{r} '.format(keyword=repo_kw[1].strip(), r=repo_kw[0].strip())
 
     print(repo_query)
 
-    resource = g.search_code(repo_query, sort='indexed', order='desc')
+    #resource = g.search_code(repo_query, sort='indexed', order='desc')
 
-    pages = 1
-    for page in range(pages):
-        page_content = resource.get_page(page)
-        for index, content in enumerate(page_content):
-            code = content.decoded_content.decode('utf-8')
-            print("***************index : " + str(index) + "**************")
-            print("code : " + code)
+    #pages = 1
+    #for page in range(pages):
+    #    page_content = resource.get_page(page)
+    #    for index, content in enumerate(page_content):
+    #        code = content.decoded_content.decode('utf-8')
+    #        print("***************index : " + str(index) + "**************")
+    #        print("code : " + code)
 
 # keyword = "connectionpool repo:lty9520/crawlerDemo"
 
