@@ -11,6 +11,8 @@
                    2020/08/17:
 -------------------------------------------------
 """
+import time
+
 __author__ = 'LHY'
 
 import os
@@ -24,3 +26,11 @@ print("cur_path" + cur_path)
 print("use_rot_path" + use_rot_path)
 print("unuse_rot_path" + unuse_rot_path)
 print("downpath" + down_path)
+
+print('*' * 80)
+
+# test_join3 = os.path.join(cur_path, './test/', 'hash')
+cur_data = time.strftime("%Y-%m-%d", time.localtime(time.time()))
+test_join3 = os.path.abspath(os.path.join(cur_path, cur_data))
+test_hash = os.path.join(test_join3, 'hash')
+print(test_hash)
