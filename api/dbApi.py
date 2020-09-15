@@ -18,7 +18,7 @@ from flask import Flask, jsonify, request
 
 from handler.redisHandler import redisHandler
 from util.rule import keyWord
-from gsil.config import get
+from helper.config import get
 from util.iterItem import iteritems
 
 app = Flask(__name__)

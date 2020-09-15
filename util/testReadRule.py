@@ -20,8 +20,8 @@ cur_path = os.path.dirname(__file__)
 home_path = os.path.abspath(os.path.join(cur_path, os.path.pardir))
 code_path = os.path.join(home_path, 'code')
 project_directory = os.path.abspath(os.path.join(cur_path, os.pardir))
-config_path = os.path.join(project_directory, 'config.gsil')
-rules_path = os.path.join(project_directory, 'rules.gsil')
+config_path = os.path.join(project_directory, 'config.helper')
+rules_path = os.path.join(project_directory, 'rules.helper')
 
 
 pool = redis.ConnectionPool.from_url('redis://:12345@127.0.0.1:6379/1')
